@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function mufunction() {
+			document.getElementById('demo').innerHTML = 'Paragraph Changed';
+		}
+		function alertFunc(p,q) {
+			alert(p*q);
+		}function printpage() {
+			//window.print();
+			document.getElementById('demo').innerHTML = alertFunc(4,3)
+		}
+	</script>
+</head>
+</head>
+<body>
+	<P id="demo">Beore click</p>
+	<P id="demo1">Before click</p>
+	<button onclick="document.getElementById('demo').innerHTML = 'After click'">Click me</button>
+	<button onclick="document.getElementById('demo').style.fontSize = '35px'">Increase size</button>
+	<button onclick="document.getElementById('demo').style.fontSize = '15px'">Decrease size</button>
+	<button onclick="document.getElementById('demo').style.display = 'none'">Hide</button>
+	<button onclick="document.getElementById('demo').style.display='block'">Show</button>
+	<button onclick="mufunction1()">Change by function</button>
+	<button onclick="alertFunc()">Alert</button>
+	<button onclick="printpage()">print</button>
+</body>
+</html>

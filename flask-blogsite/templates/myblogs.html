@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+  {% block subContent %}
+    <h1>My Blogs</h1>
+        <h3> This is a sample website for posting blogs developed using Python flask.</h3>
+        {% with msgs = get_flashed_messages(with_categories=True) %}
+            {% if msgs %}
+                {% for alt,msg in msgs %}
+                    <h3 class="alert alert-{{alt}}">{{msg}}</h3>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% for blog in blogs %}
+            <div class="jumbotron">
+              <h2>{{blog['title']}}</h2>
+              <p class="nav navbar-nav navbar-right"><a href="/editBlog/{{blog['blogId']}}">Edit: <span class="glyphicon glyphicon-pencil"></span></a> <a href="/deleteBlog/{{blog['blogId']}}">Delete: <span class="glyphicon glyphicon-remove"></span></a> </p>
+              <br>
+              <h3>{{blog['body']}}</h3>
+              <br>
+                <h4>Written by - {{session['firstName']}} {{session['lastName']}}</h4>
+            </div>
+        {% endfor %}
+  {% endblock %}

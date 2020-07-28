@@ -1,0 +1,25 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+    Flask Blog
+{% endblock %}
+{% block navbar %}
+        {% include '_navbar.html' %}
+    {% endblock %}
+{% block content %}
+<style>
+    .body{
+        background-color: #777;
+    }
+    .jumbotron {
+        width: cover;
+        height: cover;
+        background-color: #aaa;
+    }
+</style>
+<body class="body">
+    <div class="container">
+        {% block subContent %}
+        {% endblock %}
+    </div>
+</body>
+{% endblock %}

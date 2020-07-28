@@ -1,0 +1,57 @@
+<style>
+  .navbar-inverse  {
+    background-color: MediumSeaGreen;
+    color: #fff;
+    text-aligh: center;
+    height: 80px;
+    border-style: none;
+  }
+  .navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+    font-size: 20px;
+    padding-top: 30px;
+  }
+  .navbar-inverse .navbar-header>a {
+    color: #fff;
+    font-size: 50px;
+    padding-top: 30px;
+    padding-right: 100px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+  }
+  .navbar-right {
+    font-size: 20px;
+  }
+</style>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/" style="font-style:bold">MyBlog</a>
+    </div>
+    <ul class="nav navbar-nav">
+      {% if session.login %}
+      <li><a href="/">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/myblogs">My Blogs<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/myblogs">View Blogs</a></li>
+          <li><a href="/writeblog">Create New</a></li>
+        </ul>
+      </li>
+      <li><a href="/about">About</a></li>
+      {% endif %}
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {% if session.login %}
+          <li><a href="" class="dropdown-toggle" data-toggle="dropdown" >{{session['firstName']}} {{session['lastName']}}</a>
+            <ul class="dropdown-menu ">
+              <li><a href="/userProfile">Profile</a></li>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </li>
+      {% else %}
+          <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>

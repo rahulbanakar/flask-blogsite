@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+  {% block subContent %}
+<style>
+  .jumbotron
+{
+    padding-top: 0px;
+    padding-bottom:0px;
+    background-size: cover;
+    background: contain;
+    width: cover; /* make sure to define width to fill container */
+    height: cover; /* define the height in pixels or make sure   */
+                   /* you have something in your div with height */
+                   /* so you can see your image */
+    max-width:1400px;  /* define the max width */
+ }
+</style>
+  <div class="container">
+    {% with msgs = get_flashed_messages(with_categories=True) %}
+      {% if msgs %}
+        {% for cat,msg in msgs %}
+              <h1 class="alert alert-{{cat}}">{{msg}}</h1>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <div class="jumbotron">
+      <h1 style="color:MediumSeaGreen">Sign Up</h1>
+      <br><br>
+      <form class="form-horizontal" method="POST">
+        <div class="form-group">
+          <label class="control-label col-sm-2">First Name:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="firstName" placeholder="Enter First Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2">Last Name:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="lastName" placeholder="Enter Last Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2">Username:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="username" placeholder="Enter Username">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2">Email:</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" name="email" placeholder="Enter email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2">Password:</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" name="password" placeholder="Enter password">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="confirmPassword">Confirm Password:</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" name="confirmPassword" placeholder="Re-enter Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn" style="background:MediumSeaGreen" >Submit</button>
+          </div>
+        </div>
+      </form>
+      <br><br>
+    </div>
+  </div>
+  {% endblock %}

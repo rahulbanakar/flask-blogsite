@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+  {% block subContent %}
+    {% with msgs = get_flashed_messages(with_categories=True) %}
+      {% if msgs %}
+        {% for cat,msg in msgs %}
+              <h1 class="alert alert-{{cat}}">{{msg}}</h1>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+        <h1>About MyBlogs</h1>
+        <h3> This is a sample website for posting blogs developed using Python flask.</h3>
+
+  {% endblock %}
